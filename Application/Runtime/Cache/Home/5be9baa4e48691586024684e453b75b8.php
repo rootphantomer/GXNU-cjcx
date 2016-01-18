@@ -1,17 +1,17 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 
 	<head>
 		<title></title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap.css" />
-		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/bootstrap-responsive.css" />
-		<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/css/style.css" />
-		<script type="text/javascript" src="__PUBLIC__/Js/jquery.js"></script>
-		<script type="text/javascript" src="__PUBLIC__/Js/jquery.sorted.js"></script>
-		<script type="text/javascript" src="__PUBLIC__/Js/bootstrap.js"></script>
-		<script type="text/javascript" src="__PUBLIC__/Js/ckform.js"></script>
-		<script type="text/javascript" src="__PUBLIC__/Js/common.js"></script>
+		<link rel="stylesheet" type="text/css" href="/Public/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="/Public/css/bootstrap-responsive.css" />
+		<link rel="stylesheet" type="text/css" href="/Public/css/css/style.css" />
+		<script type="text/javascript" src="/Public/Js/jquery.js"></script>
+		<script type="text/javascript" src="/Public/Js/jquery.sorted.js"></script>
+		<script type="text/javascript" src="/Public/Js/bootstrap.js"></script>
+		<script type="text/javascript" src="/Public/Js/ckform.js"></script>
+		<script type="text/javascript" src="/Public/Js/common.js"></script>
 
 		<style type="text/css">
 			body {
@@ -47,12 +47,10 @@
 					<th>成绩</th>
 				</tr>
 			</thead>
-			<foreach name="data" item="vo">
-				<tr>
-					<td>{$vo.kcmc}</td>
-					<td>{$vo.cj}</td>
-				</tr>
-			</foreach>
+			<?php if(is_array($data)): foreach($data as $key=>$vo): ?><tr>
+					<td><?php echo ($vo["kcmc"]); ?></td>
+					<td><?php echo ($vo["cj"]); ?></td>
+				</tr><?php endforeach; endif; ?>
 		</table>
 	</body>
 

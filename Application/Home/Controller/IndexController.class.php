@@ -27,8 +27,8 @@ class IndexController extends BaseController {
 		$info = D('info');
 		$infodata['number'] = $number;
 		$infodata['sessionid'] = $sessionid;
-		if ($info -> where(array("number"=>$number))->count()) {
-			$info -> where(array("number"=>$number)) -> save($infodata);
+		if ($info -> where(array("number" => $number)) -> count()) {
+			$info -> where(array("number" => $number)) -> save($infodata);
 		} else {
 			$info -> add($infodata);
 		}
@@ -37,7 +37,7 @@ class IndexController extends BaseController {
 
 	public function mulu() {
 		$number = cookie('number');
-		$this -> assign("number",$number);
+		$this -> assign("number", $number);
 		$this -> display();
 	}
 
@@ -48,11 +48,8 @@ class IndexController extends BaseController {
 		$post_data = array('session_id' => $sessionid);
 		$data = send_post2('http://www.dean.gxnu.edu.cn/jwxt/index.php/api/user/getUserInfo', $post_data, $cookie);
 		$data = json_decode($data, TRUE);
-		foreach ($data as $a => $b) {
-			foreach ($b as $c => $d) {
-				echo $c . '-----' . $d . "</br>";
-			}
-		}
+		$this -> assign('data', $data);
+		$this -> display();
 	}
 
 	public function getyxcj() {
@@ -62,13 +59,9 @@ class IndexController extends BaseController {
 		$post_data = array('session_id' => $sessionid);
 		$data = send_post2('http://www.dean.gxnu.edu.cn/jwxt/index.php/api/chengji/getyxcj', $post_data, $cookie);
 		$data = json_decode($data, TRUE);
-		foreach ($data as $a => $b) {
-			foreach ($b as $c => $d) {
-				foreach ($d as $e => $f) {
-					echo $e . '-----' . $f . "</br>";
-				}
-			}
-		}
+		$this -> assign('data', $data['msg']);
+		$this -> display();
+
 	}
 
 	public function getbjgcj() {
@@ -78,13 +71,8 @@ class IndexController extends BaseController {
 		$post_data = array('session_id' => $sessionid);
 		$data = send_post2('http://www.dean.gxnu.edu.cn/jwxt/index.php/api/chengji/getbjgcj', $post_data, $cookie);
 		$data = json_decode($data, TRUE);
-		foreach ($data as $a => $b) {
-			foreach ($b as $c => $d) {
-				foreach ($d as $e => $f) {
-					echo $e . '-----' . $f . "</br>";
-				}
-			}
-		}
+		$this -> assign('data', $data['msg']);
+		$this -> display();
 	}
 
 	public function getqtcj() {
@@ -94,13 +82,8 @@ class IndexController extends BaseController {
 		$post_data = array('session_id' => $sessionid);
 		$data = send_post2('http://www.dean.gxnu.edu.cn/jwxt/index.php/api/chengji/getqtcj', $post_data, $cookie);
 		$data = json_decode($data, TRUE);
-		foreach ($data as $a => $b) {
-			foreach ($b as $c => $d) {
-				foreach ($d as $e => $f) {
-					echo $e . '-----' . $f . "</br>";
-				}
-			}
-		}
+		$this -> assign('data', $data['msg']);
+		$this -> display();
 	}
 
 	public function loginout() {
