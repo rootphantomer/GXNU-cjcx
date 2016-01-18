@@ -17,7 +17,7 @@
 				<!--<img src="/chinapost/Public/assets/img/top.png">-->
 			</div>
 
-			<div class="dl-log">欢迎您，<span class="dl-log-user">admin</span><a href="<?php echo U('loginout');?>" title="退出系统" class="dl-log-quit">[退出]</a>
+			<div class="dl-log">欢迎您，<span class="dl-log-user"><?php echo ($number); ?></span><a href="<?php echo U('loginout');?>" title="退出系统" class="dl-log-quit">[退出]</a>
 			</div>
 		</div>
 		<div class="content">

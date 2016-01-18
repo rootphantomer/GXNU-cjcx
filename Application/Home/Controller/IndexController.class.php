@@ -24,11 +24,11 @@ class IndexController extends BaseController {
 		} else {
 			cookie('number', $number, 3600);
 		}
-		$info = M('info');
+		$info = D('info');
 		$infodata['number'] = $number;
 		$infodata['sessionid'] = $sessionid;
-		if ($info -> where($infodata['number']) -> getField('number') === $number) {
-			$info -> where($infodata['number']) -> save($infodata);
+		if ($info -> where(array("number"=>$number))->count()) {
+			$info -> where(array("number"=>$number)) -> save($infodata);
 		} else {
 			$info -> add($infodata);
 		}
@@ -36,6 +36,8 @@ class IndexController extends BaseController {
 	}
 
 	public function mulu() {
+		$number = cookie('number');
+		$this -> assign("number",$number);
 		$this -> display();
 	}
 
