@@ -21,7 +21,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 --  Table structure for `id`
 -- ----------------------------
 DROP TABLE IF EXISTS `id`;
-CREATE TABLE `id` (
+CREATE TABLE `info` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `number` int(20) NOT NULL,
   `sessionid` varchar(20) DEFAULT NULL,
